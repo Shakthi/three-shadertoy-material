@@ -17,7 +17,8 @@ module.exports = {
 		path: path.join(__dirname, 'dist'),
 		filename: 'ShaderToyMaterial.js',
 		libraryTarget: 'umd',
-		library: 'ShaderToyMaterial'
+		library: 'ShaderToyMaterial',
+		globalObject: 'this'
 	},
 	module: {
 		rules: [
