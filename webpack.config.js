@@ -18,7 +18,8 @@ module.exports = {
 		filename: 'ShaderToyMaterial.js',
 		libraryTarget: 'umd',
 		library: 'ShaderToyMaterial',
-		globalObject: 'this'
+		globalObject: 'this',
+		libraryExport: "default"
 	},
 	module: {
 		rules: [
