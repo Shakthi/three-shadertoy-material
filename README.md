@@ -22,5 +22,5 @@ TODO
 -----
 - Support for more uniforms. (Only uniforms iTime and iResolution supported for now)
 - External textures  (Channels)
-- Multpass (Buffer) 
+- Multpass (Buffers) 
 
