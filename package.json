@@ -24,6 +24,7 @@
   "homepage": "https://github.com/shakthi/three-shadertoy-material#readme",
   "dependencies": {
     "babel-preset-env": "^1.7.0",
+    "comment-regex": "^1.0.1",
     "three": "^0.94.0"
   },
   "devDependencies": {

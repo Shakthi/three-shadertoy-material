@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
+	devtool: 'cheap-eval-source-map',
 	mode: 'production',
 	entry: './src/ShaderToyMaterial.js',
 	externals: {
