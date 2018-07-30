@@ -27,6 +27,8 @@ uniform float iTimeDelta; //render time (in seconds)
 uniform int iFrame; //shader playback frame
 uniform vec4 iMouse; // mouse pixel coords. Faked: Hardcoded center point of the iResolution
 uniform vec4 iDate; //(year, month, day, time in seconds)
+uniform vec3 iChannelResolution[4]; // channel resolution (in pixels) - Not fully optimised
+uniform sampler2D iChannel0..3; // input channel texture2d only
 
 ```
 TODO
