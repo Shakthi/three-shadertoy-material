@@ -33,7 +33,7 @@ uniform sampler2D iChannel0..3; // input channel texture2d only
 ```
 TODO
 -----
-- Support for other uniforms
-- External textures  (Channels)
+
+- Support for video/cube textures
 - Multpass (Buffers) 
 
