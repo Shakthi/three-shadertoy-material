@@ -25,7 +25,7 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
             vertexShader: vert,
             fragmentShader: "",
         });
-        if (usedUniforms.iTime || usedUniforms.iTimeDelta || usedUniforms.iFrame||usedUniforms.iDate) {
+        if (usedUniforms.iTime || usedUniforms.iTimeDelta || usedUniforms.iFrame || usedUniforms.iDate) {
             if (usedUniforms.iTime || usedUniforms.iTimeDelta)
                 this.clock = clock;
             this.registerUpdate();
@@ -71,6 +71,29 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
             );
         }
 
+        if (this.uniforms.iChannelResolution) {
+
+            let checkchannel = (i) => {
+
+                if (this.uniforms["iChannel" + i] && this.uniforms["iChannel" + i].value.image) {
+
+                    this.uniforms.iChannelResolution.value[i] = new THREE.Vector3(
+                        this.uniforms["iChannel" + i].value.image.width,
+                        this.uniforms["iChannel" + i].value.image.height);
+
+
+                }
+            }
+
+
+            for (let index = 0; index < 4; index++) {
+                checkchannel(index);
+            }
+
+
+        }
+
+
         requestAnimationFrame(() => { this.update() });
     }
 
@@ -92,7 +115,7 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
         
         */
         let commentLessShader = shaderToySample.replace(commentRegex(), "");
-        let expectedUniforms = "iTime,iTimeDelta,iResolution,iFrame,iChannelTime[4],iChannelResolution[4],iChannel0,iChannel1,iChannel2,iChannel3,iDate,iMouse".split(",");
+        let expectedUniforms = "iTime,iTimeDelta,iResolution,iFrame,iChannelTime[4],iChannelResolution,iChannel0,iChannel1,iChannel2,iChannel3,iDate,iMouse".split(",");
         let existingUniforms = {};
         expectedUniforms.forEach(uniform => {
             if (commentLessShader.includes(uniform))
@@ -148,9 +171,54 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
 
 
 
+        let this_ = this;
+
+        if (usedUnforms["iChannelResolution"]) {
+
+            uniforms["iChannelResolution"] = {
+                type: "v3v", value: [
+                    new THREE.Vector3(),
+                    new THREE.Vector3(),
+                    new THREE.Vector3(),
+                    new THREE.Vector3(),
+                ]
+            };
+
+            uniformsCode += "uniform vec3 iChannelResolution[4];\n";
+        }
+
+        function checkchannel(i) {
+
+            if (usedUnforms["iChannel" + i]) {
+
+                let texture = options.map ? options.map : this_.getDefaultTexture();
+                texture = (Array.isArray(texture)) ? texture[i] : texture;
+                uniforms["iChannel" + i] = { type: "t", value: texture }
+                uniformsCode += "uniform sampler2D " + ["iChannel" + i] + ";\n";
+
+            }
+        }
+
+
+        for (let index = 0; index < 4; index++) {
+            checkchannel(index);
+        }
+
+
+
 
 
         return { prof: uniforms, code: uniformsCode };
+    }
+
+    getDefaultTexture() {
+        if (!ShaderToyMaterial.defaultTexture)
+            ShaderToyMaterial.defaultTexture = new THREE.TextureLoader().load("https://threejs.org/examples/textures/UV_Grid_Sm.jpg", () => {
+                this.update();
+            });
+
+        return ShaderToyMaterial.defaultTexture;
+
     }
 
 
