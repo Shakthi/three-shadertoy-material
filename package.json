@@ -1,6 +1,6 @@
 {
   "name": "three-shadertoy-material",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "A threejs material that helps to make use of ShaderToy shader code on meshes",
   "module": "ShaderToyMaterial.js",
   "main": "dist/ShaderToyMaterial.js",
