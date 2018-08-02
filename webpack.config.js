@@ -3,7 +3,7 @@ var path = require('path');
 
 module.exports = {
 	devtool: 'none',
-	mode: 'production',
+	mode: 'development',
 	entry: './src/ShaderToyMaterial.js',
 	externals: {
 		three: {
