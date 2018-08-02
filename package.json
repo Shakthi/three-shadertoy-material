@@ -1,12 +1,12 @@
 {
   "name": "three-shadertoy-material",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "A threejs material that helps to make use of ShaderToy shader code on meshes",
   "module": "ShaderToyMaterial.js",
   "main": "dist/ShaderToyMaterial.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack-cli"   
+    "build": "webpack-cli"
   },
   "repository": {
     "type": "git",
@@ -23,16 +23,18 @@
     "url": "https://github.com/shakthi/three-shadertoy-material/issues"
   },
   "homepage": "https://github.com/shakthi/three-shadertoy-material#readme",
-  "dependencies": {
-    "comment-regex": "^1.0.1",
-    "three": "^0.94.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "comment-regex": "^1.0.1",
     "glslify-loader": "^1.0.2",
     "raw-loader": "^0.5.1",
+    "three": "^0.93.0",
     "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0"
+  },
+  "peerDependencies": {
+    "three": "^0.93.0"
   }
 }
