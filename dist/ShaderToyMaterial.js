@@ -374,7 +374,7 @@ class ShaderToyMaterial extends three__WEBPACK_IMPORTED_MODULE_0__["RawShaderMat
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "precision highp float;\n#define GLSLIFY 1\nuniform vec2 iResolution;\nvarying vec2 vUv;\nvoid  mainImage( out vec4,  vec2 fragCoord );\nvoid main () {\n    vec4 outfrag;\n    mainImage(outfrag,iResolution*vUv);\n    gl_FragColor = outfrag;\n}"
+module.exports = "precision highp float;\n#define GLSLIFY 1\nuniform vec2 iResolution;\nvarying vec2 vUv;\nvec4 texture(sampler2D sampler, vec2 coord){\n    return texture2D(sampler,  coord);\n}\nvoid  mainImage( out vec4,  vec2 fragCoord );\nvoid main () {\n    vec4 outfrag;\n    mainImage(outfrag,iResolution*vUv);\n    gl_FragColor = outfrag;\n}\n"
 
 /***/ }),
 
