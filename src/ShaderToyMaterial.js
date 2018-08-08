@@ -126,19 +126,19 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
     }
 
 
-    createUniformsObject(usedUnforms, options) {
+    createUniformsObject(usedUniforms, options) {
         let uniforms = {};
         let uniformsCode = ""
 
-        if (usedUnforms.iResolution) {
+        if (usedUniforms.iResolution) {
             uniforms.iResolution = { value: new THREE.Vector2(options.width, options.hieght) }
         }
 
-        if (usedUnforms.iTime) {
+        if (usedUniforms.iTime) {
             uniforms.iTime = { type: "1f", value: this.clock.getElapsedTime() };
             uniformsCode += "uniform float iTime;\n";
         }
-        if (usedUnforms.iDate) {
+        if (usedUniforms.iDate) {
             uniforms.iDate = { value: new THREE.Vector4() };
             uniformsCode += "uniform vec4 iDate;\n";
         }
@@ -146,18 +146,18 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
         //uniform vec4 iDate;
 
 
-        if (usedUnforms.iTimeDelta) {
+        if (usedUniforms.iTimeDelta) {
             uniforms.iTimeDelta = { type: "1f", value: this.clock.getDelta() }
             uniformsCode += "uniform float iTimeDelta;\n";
         }
 
 
-        if (usedUnforms.iFrame) {
+        if (usedUniforms.iFrame) {
             uniforms.iFrame = { type: "1i", value: 0 }
             uniformsCode += "uniform int iFrame;\n";
         }
 
-        if (usedUnforms.iMouse) {
+        if (usedUniforms.iMouse) {
             uniforms.iMouse = {
                 value: new THREE.Vector4(
                     options.width / 2,
@@ -173,7 +173,7 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
 
         let this_ = this;
 
-        if (usedUnforms["iChannelResolution"]) {
+        if (usedUniforms["iChannelResolution"]) {
 
             uniforms["iChannelResolution"] = {
                 type: "v3v", value: [
@@ -189,7 +189,7 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
 
         function checkchannel(i) {
 
-            if (usedUnforms["iChannel" + i]) {
+            if (usedUniforms["iChannel" + i]) {
 
                 let texture = options.map ? options.map : this_.getDefaultTexture();
                 texture = (Array.isArray(texture)) ? texture[i] : texture;
