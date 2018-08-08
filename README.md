@@ -31,6 +31,14 @@ uniform vec3 iChannelResolution[4]; // channel resolution (in pixels) - Not full
 uniform sampler2D iChannel0..3; // input channel texture2d only
 
 ```
+
+How to pass texture inputs to above shader material
+----
+```javascript
+new ShaderToyMaterial(`shader code`,{map:texture});
+```
+This texture is available via iChannel0, multiple texture can be passed as an array (which are avaible via iChannel0..3)
+
 TODO
 -----
 
