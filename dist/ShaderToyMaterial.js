@@ -267,19 +267,19 @@ class ShaderToyMaterial extends three__WEBPACK_IMPORTED_MODULE_0__["RawShaderMat
     }
 
 
-    createUniformsObject(usedUnforms, options) {
+    createUniformsObject(usedUniforms, options) {
         let uniforms = {};
         let uniformsCode = ""
 
-        if (usedUnforms.iResolution) {
+        if (usedUniforms.iResolution) {
             uniforms.iResolution = { value: new three__WEBPACK_IMPORTED_MODULE_0__["Vector2"](options.width, options.hieght) }
         }
 
-        if (usedUnforms.iTime) {
+        if (usedUniforms.iTime) {
             uniforms.iTime = { type: "1f", value: this.clock.getElapsedTime() };
             uniformsCode += "uniform float iTime;\n";
         }
-        if (usedUnforms.iDate) {
+        if (usedUniforms.iDate) {
             uniforms.iDate = { value: new three__WEBPACK_IMPORTED_MODULE_0__["Vector4"]() };
             uniformsCode += "uniform vec4 iDate;\n";
         }
@@ -287,18 +287,18 @@ class ShaderToyMaterial extends three__WEBPACK_IMPORTED_MODULE_0__["RawShaderMat
         //uniform vec4 iDate;
 
 
-        if (usedUnforms.iTimeDelta) {
+        if (usedUniforms.iTimeDelta) {
             uniforms.iTimeDelta = { type: "1f", value: this.clock.getDelta() }
             uniformsCode += "uniform float iTimeDelta;\n";
         }
 
 
-        if (usedUnforms.iFrame) {
+        if (usedUniforms.iFrame) {
             uniforms.iFrame = { type: "1i", value: 0 }
             uniformsCode += "uniform int iFrame;\n";
         }
 
-        if (usedUnforms.iMouse) {
+        if (usedUniforms.iMouse) {
             uniforms.iMouse = {
                 value: new three__WEBPACK_IMPORTED_MODULE_0__["Vector4"](
                     options.width / 2,
@@ -314,7 +314,7 @@ class ShaderToyMaterial extends three__WEBPACK_IMPORTED_MODULE_0__["RawShaderMat
 
         let this_ = this;
 
-        if (usedUnforms["iChannelResolution"]) {
+        if (usedUniforms["iChannelResolution"]) {
 
             uniforms["iChannelResolution"] = {
                 type: "v3v", value: [
@@ -330,7 +330,7 @@ class ShaderToyMaterial extends three__WEBPACK_IMPORTED_MODULE_0__["RawShaderMat
 
         function checkchannel(i) {
 
-            if (usedUnforms["iChannel" + i]) {
+            if (usedUniforms["iChannel" + i]) {
 
                 let texture = options.map ? options.map : this_.getDefaultTexture();
                 texture = (Array.isArray(texture)) ? texture[i] : texture;

@@ -5,7 +5,8 @@
   "main": "dist/ShaderToyMaterial.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack-cli"
+    "build": "webpack-cli --env dev",
+    "start:dev": "webpack-dev-server --env dev"
   },
   "repository": {
     "type": "git",
@@ -28,10 +29,12 @@
     "babel-preset-env": "^1.7.0",
     "comment-regex": "^1.0.1",
     "glslify-loader": "^1.0.2",
+    "html-webpack-plugin": "^3.2.0",
     "raw-loader": "^0.5.1",
     "three": "^0.93.0",
     "webpack": "^4.16.2",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.14"
   },
   "peerDependencies": {
     "three": "^0.84.0"
