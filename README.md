@@ -16,6 +16,13 @@ mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 ```
 
+Local testing
+-------
+```shell
+npm run start:dev 
+``` 
+
+
 Sample implementation at https://shakthi.github.io/threejs-shadertoy/dist/
 
 Supported uniforms
