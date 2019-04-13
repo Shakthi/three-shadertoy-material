@@ -11,7 +11,13 @@ npm install three-shadertoy-material
 var ShaderToyMaterial = require('three-shadertoy-material') // import ShaderToyMaterial from 'three-shadertoy-material' 
 
 geometry = new THREE.PlaneBufferGeometry(1500, 750);
-material = new ShaderToyMaterial("shaderToyCodeSample");
+
+var shadercode = `void mainImage( out vec4 O,  vec2 U ){
+    U = 2.* sin (25.*U/iResolution.x);  
+    O = .5 + .5* sin( U.x+U.y + vec4(0,2.4,-2.4,0) +iTime);
+}`;
+
+material = new ShaderToyMaterial(shadercode);
 mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 ```
@@ -39,6 +45,9 @@ uniform sampler2D iChannel0..3; // input channel texture2d only
 
 ```
 
+
+
+
 How to pass texture inputs to above shader material
 ----
 ```javascript
@@ -51,4 +60,10 @@ TODO
 
 - Support for video/cube textures
 - Multpass (Buffers) 
+
+Credits
+-----
+Sample shader used here is taken from  https://www.shadertoy.com/view/XssBzH
+
+
 

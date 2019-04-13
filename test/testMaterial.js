@@ -17,8 +17,12 @@ function init() {
     scene = new THREE.Scene();
  
     geometry = new THREE.BoxGeometry( 0.5, 0.5, 0.5 );
-    material = new ShaderToyMaterial(sampleShader);
- 
+    material = new ShaderToyMaterial(
+        `void mainImage( out vec4 O,  vec2 U ){
+            U = 2.* sin (25.*U/iResolution.x);  
+            O = .5 + .5* sin( U.x+U.y + vec4(0,2.4,-2.4,0) +iTime);
+        }`
+    ); 
     mesh = new THREE.Mesh( geometry, material );
     scene.add( mesh );
  
