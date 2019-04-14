@@ -63,7 +63,8 @@ TODO
 
 Credits
 -----
-Sample shader used here is taken from  https://www.shadertoy.com/view/XssBzH
+- All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.   
+- Sample shader used here is taken from  https://www.shadertoy.com/view/XssBzH
 
 
 
