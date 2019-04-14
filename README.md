@@ -64,6 +64,8 @@ TODO
 Credits
 -----
 - All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.   
+- Shadertoy (https://www.shadertoy.com)  a cross-browser online community and tool for creating and sharing shaders through WebGL.
+- Three.js (https://threejs.org/) is a cross-browser JavaScript library and Application Programming Interface used to create and display animated 3D computer graphics in a web browser.
 - Sample shader used here is taken from  https://www.shadertoy.com/view/XssBzH
 
 
