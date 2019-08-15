@@ -28,13 +28,13 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "comment-regex": "^1.0.1",
-    "glslify-loader": "^1.0.2",
+    "glslify-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "raw-loader": "^0.5.1",
     "three": "^0.93.0",
-    "webpack": "^4.16.2",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.14"
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
   },
   "peerDependencies": {
     "three": "^0.84.0"

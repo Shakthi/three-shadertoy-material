@@ -385,7 +385,7 @@ module.exports = "precision highp float;\n#define GLSLIFY 1\nuniform vec2 iResol
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#define GLSLIFY 1\nattribute vec3 position;\nattribute vec2 uv;\n\n\nuniform mat4 projectionMatrix;\nuniform mat4 modelViewMatrix;\nvarying vec2 vUv;\nvoid main () {\n    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\n    vUv=uv;\n}"
+module.exports = "#define GLSLIFY 1\nattribute vec3 position;\nattribute vec2 uv;\n\nuniform mat4 projectionMatrix;\nuniform mat4 modelViewMatrix;\nvarying vec2 vUv;\nvoid main () {\n    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\n    vUv=uv;\n}"
 
 /***/ }),
 
